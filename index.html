@@ -1,91 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miserable Secrets</title>
-  </head>
-  <body>
-    <div class="sheet">
-      <h1>Miserable Secrets</h1>
-      <form>
-        <fieldset class="form-identity">
-          <label>
-            Name
-            <input type="text" required />
-          </label>
-          <label>
-            Player
-            <input type="text" required />
-          </label>
-          <label>
-            Traits
-            <input type="text" required />
-          </label>
-        </fieldset>
 
-        <table class="form-table">
-          <caption>
-            Distinctions
-          </caption>
-          <tbody>
-            <tr>
-              <th scope="row">Cross</th>
-              <td>
-                <input type="text" />
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Cross</th>
-              <td>
-                <input type="text" />
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Cross</th>
-              <td>
-                <input type="text" />
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Cross</th>
-              <td>
-                <input type="text" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="form-table--tall">
-          <tbody>
-            <tr>
-              <th scope="row">Power</th>
-              <td>
-                <textarea></textarea>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Power</th>
-              <td>
-                <textarea></textarea>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Power</th>
-              <td>
-                <textarea></textarea>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Power</th>
-              <td>
-                <textarea></textarea>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-    </div>
-    <script type="module" src="/main.js"></script>
-  </body>
-</html>
+  <link rel="stylesheet" href="/style.css">
+  <div class="sheet">
+    <h2>Miserable Secrets</h2>
+    <form>
+      <fieldset class="form-identity">
+        <label>
+          Name
+          <input name="attr_Character_Name" type="text" />
+        </label>
+        <label>
+          Background
+          <select name="attr_Background">
+            <option>Alchemist</option>
+            <option>Dream-Thief</option>
+            <option>Evangelist</option>
+            <option>Half-Noble</option>
+            <option>Hunter</option>
+            <option>Numerological Monk</option>
+            <option>Wise One</option>
+            <option>Witchfinder</option>
+            <option>Wolf</option>
+          </select>
+        </label>
+        <input type="hidden" name="attr_Description" />
+        <div>{{description}}</div>
+        <label>
+          Traits
+          <input type="text" />
+        </label>
+
+
+
+      </fieldset>
+
+      <table class="form-table">
+        <caption>
+          Distinctions
+        </caption>
+        <tbody>
+          <tr>
+            <th scope="row">Spades</th>
+            <td>
+              <input type="text" />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Clubs</th>
+            <td>
+              <input type="text" />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Hearts</th>
+            <td>
+              <input type="text" />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Diamonds</th>
+            <td>
+              <input type="text" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="form-table--tall">
+        <caption>Powers</caption>
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td>
+              
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>
+              
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+ 
+  <script type="module" src="/main.js"></script>
+
