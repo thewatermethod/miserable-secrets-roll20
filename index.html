@@ -1,9 +1,9 @@
 
-  <link rel="stylesheet" href="/style.css">
+  <!-- <link rel="stylesheet" href="/style.css"> -->
   <div class="sheet">
     <h2>Miserable Secrets</h2>
     <form>
-      <fieldset class="form-identity">
+      <section class="form-identity">
         <label>
           Name
           <input name="attr_Character_Name" type="text" />
@@ -22,16 +22,17 @@
             <option>Wolf</option>
           </select>
         </label>
-        <input type="hidden" name="attr_Description" />
-        <div>{{description}}</div>
+        
+        <fieldset class="repeating_descriptions">
+          <span name="attr_desc"></span>
+        </fieldset>
+
         <label>
           Traits
           <input type="text" />
         </label>
 
-
-
-      </fieldset>
+      </section>
 
       <table class="form-table">
         <caption>
@@ -41,25 +42,25 @@
           <tr>
             <th scope="row">Spades</th>
             <td>
-              <input type="text" />
+              <input name="attr_SpadesDistinction" type="text" placeholder="A dangerous or predatory truth."/>
             </td>
           </tr>
           <tr>
             <th scope="row">Clubs</th>
             <td>
-              <input type="text" />
+              <input name="attr_ClubsDistinction" placeholder="An obvious feature or look, visible to everyone." type="text" />
             </td>
           </tr>
           <tr>
             <th scope="row">Hearts</th>
             <td>
-              <input type="text" />
+              <input name="attr_HeartsDistinction" placeholder="A deep personal connection to a person or place." type="text" />
             </td>
           </tr>
           <tr>
             <th scope="row">Diamonds</th>
             <td>
-              <input type="text" />
+              <input name="attr_DiamondsDistinction" placeholder="omething of value you carry or know." type="text" />
             </td>
           </tr>
         </tbody>
@@ -90,5 +91,116 @@
     </form>
   </div>
  
-  <script type="module" src="/main.js"></script>
+<script type="text/worker">
+  
+// The big old dictionary that stores our character class info
+const Backgrounds = {
+  Alchemist: {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  "Dream-Thief": {
+    Description: [
+      `...come from the far south, and are often believed to be the dev-
+      il-rulers of those lands.`,
+      `...sustain themselves on the nightly wants of mortals and Noblesse
+      alike.`,
+      `...speak all the languages of Christendom, and take their names
+      from common words.`,
+    ],
+  },
+  Evangelist: {
+    Description: [
+      `...have experienced an epiphany that drives them to spread God's
+      word.`,
+      `...are often considered living saints.`,
+      `...are both valued and watched carefully by the Church`,
+    ],
+  },
+  "Half-Noble": {
+    Description: [
+      `...don't inherit titles, but may receive gifts from their parents.`,
+      `...have the sacred thirst of their ancestors, but are less gluttonus.`,
+      `...receive much of the respect or scorn the common people direct at
+      their full-blooded kin.`,
+    ],
+  },
+  Hunter: {
+    Description: [
+      `...battle monsters and demons wherever they find them.`,
+      `...are heirs to a particular legacy of demon-hunting.`,
+      `...are considered a necessary evil by the Noblesse.`,
+    ],
+  },
+  "Numerological Monk": {
+    Description: [
+      `...are apprenticed at young ages to the Church.`,
+      `...are critical in crusades against the Thinking Machines`,
+      `..are considered sage in matters beyond mathematics`,
+    ],
+  },
+  "Wise One": {
+    Description: [
+      `...know secrets of old world engineering`,
+      `...can heal and perform surgery with ancient techniques`,
+      `...are often respected and protected by local villagers.`,
+    ],
+  },
+  Witchfinder: {
+    Description: [
+      `...are not agents of the Church, but don’t tell them that`,
+      `...root out both heresy and demons`,
+      `...are collegial to each other, but rarely formally affiliated`,
+    ],
+  },
+  Wolf: {
+    Description: [
+      `...are the Hounds of God`,
+      `...can always speak, but take human form only when needed.`,
+      `...form packs with those they feel closest to`,
+    ],
+    Powers: [
+      {
+        selected: false,
+        name: 'One God, No Kings',
+        cost: '',
+        desc: 'You have a holy purpose, one outside the feudal order and fully equal to it',
+        investigate: 'When you declare yourself outside authority, you may treat any card as if it were a club',
+        battle: 'Gain Resistance (Secular) 1 or Resistance (Sacred) 1 until the beginning of your next turn.'        
+      }
+    ]
+  },
+};
 
+function updateRepeatedRows(slug, newValues) {
+  // clear out old values
+  getSectionIDs(slug, (oldValues) => {
+    oldValues.forEach((v) => removeRepeatingRow(`${slug}_${v}`));
+  });
+
+  setAttrs(newValues);
+}
+
+// The on change handler for changing character class
+on("change:Background", (e) => {
+  const { newValue } = e;
+  const { Description } = Backgrounds[newValue];
+
+  // update w/ new values
+  const attrs = Description.reduce((previousValue, currentValue) => {
+    const id = generateRowID();
+    return {
+      ...previousValue,
+      [`repeating_descriptions_${id}_desc`]: currentValue,
+    };
+  }, {});
+
+  updateRepeatedRows("repeating_descriptions", attrs);
+});
+
+
+</script>

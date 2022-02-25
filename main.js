@@ -1,58 +1,101 @@
-// The dictionaries
-
-const DESCRIPTIONS = {
-  Alchemist: `<p>...have replaced their blood with finely-wrought liquid machinery.</p> 
-    <p>...search for the secrets of natural philosophy.</p> 
-    <p>...often have wealthy patrons, though their self-made blood makes
-the Noblesse suspicious</p>
-    `,
-  "Dream-Thief": "",
-  Evangelist: "",
-  "Half-Noble": "",
-  Hunter: "",
-  "Numerological Monk": "",
-  "Wise One": "",
-  Witchfinder: "",
-  Wolf: "",
+// The big old dictionary that stores our character class info
+const Backgrounds = {
+  Alchemist: {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  "Dream-Thief": {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  Evangelist: {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  "Half-Noble": {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  Hunter: {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  "Numerological Monk": {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  "Wise One": {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  Witchfinder: {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
+  Wolf: {
+    Description: [
+      `...have replaced their blood with finely-wrought liquid machinery.`,
+      `...search for the secrets of natural philosophy.`,
+      `...often have wealthy patrons, though their self-made blood makes
+  the Noblesse suspicious`,
+    ],
+  },
 };
 
-const BACKGROUNDS = {
-  Alchemist: [],
-  "Dream-Thief": [],
-  Evangelist: [],
-  "Half-Noble": [],
-  Hunter: [],
-  "Numerological Monk": [],
-  "Wise One": [],
-  Witchfinder: [],
-  Wolf: [],
-};
+function updateRepeatedRows(slug, newValues) {
+  // clear out old values
+  getSectionIDs(slug, (oldValues) => {
+    oldValues.forEach((v) => removeRepeatingRow(`${slug}_${v}`));
+  });
 
-// sources of dom truth
-const background = document.querySelector('[name="attr_Background"]');
-const description = document.querySelector('[name="attr_Description"');
+  setAttrs(newValues);
+}
 
-const logPowers = (bg) => {
-  const powers = BACKGROUNDS[bg];
-  if (!powers) {
-    throw new Error(); // todo - catch this
-  }
+// The on change handler for changing character class
+on("change:Background", (e) => {
+  const { newValue } = e;
+  const { Description } = Backgrounds[newValue];
 
-  console.log(powers);
-};
+  // update w/ new values
+  const attrs = Description.reduce((previousValue, currentValue) => {
+    const id = generateRowID();
+    return {
+      ...previousValue,
+      [`repeating_descriptions_${id}_desc`]: currentValue,
+    };
+  }, {});
 
-const setDescription = (bg) => {
-  const backgroundDescription = DESCRIPTIONS[bg];
-  if (!backgroundDescription || !description) {
-    throw new Error(); // todo - catch this
-  }
-
-  description.value = backgroundDescription;
-  description.nextElementSibling.innerHTML = description.value;
-};
-
-background.addEventListener("change", (e) => {
-  const newBackground = e.target.value;
-  setDescription(newBackground);
-  logPowers(newBackground);
+  updateRepeatedRows("repeating_descriptions", attrs);
 });
