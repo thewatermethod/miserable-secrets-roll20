@@ -1,0 +1,190 @@
+
+<div class="sheet">
+
+  <!-- this decides whether we show the form fields or the flat data -->
+  <input type="hidden" name="attr_ReadOnly">
+  <div class="form">
+
+    <section class="identity-details">
+      <label class="show-on-edit">
+        Name<br />
+        <input name="attr_character_name" type="text" />
+      </label>
+
+      <span class="hide-on-edit" name="attr_character_name"></span>
+
+      <label>
+        Hope<br />
+        <input type="number" name="attr_Hope" min="0">
+      </label>
+
+      <label class="ReadOnly">Edit mode<input type="checkbox" name="attr_ReadOnly"></label>
+
+    </section>
+
+    <hr />
+
+    <section class="background-details">
+      <h2>Background</h2>
+        <select name="attr_Background" aria-label="select background">
+          <option>Alchemist</option>
+          <option>Dream-Thief</option>
+          <option>Evangelist</option>
+          <option>Half-Noble</option>
+          <option>Hunter</option>
+          <option>Numerological Monk</option>
+          <option>Wise One</option>
+          <option>Witchfinder</option>
+          <option>Wolf</option>
+        </select>
+      </label>
+
+      <fieldset class="repeating_descriptions">
+        <span name="attr_desc"></span>
+      </fieldset>
+    </section>
+
+
+    <h2>Powers</h2>
+    <section class="power-details">
+
+      <div class="power-card">
+        <span name="attr_Power1_Name" class="power-name"></span>
+        <span name="attr_Power1_Cost" class="power-cost"></span>
+        <span name="attr_Power1_Description" class="power-description"></span>
+        <span name="attr_Power1_Investigation" class="power-investigation"></span>
+        <span name="attr_Power1_Battle" class="power-battle"></span>
+      </div>
+
+      <div class="power-card">
+        <span name="attr_Power2_Name"></span>
+        <span name="attr_Power2_Cost"></span>
+        <span name="attr_Power2_Description"></span>
+        <span name="attr_Power2_Investigation"></span>
+        <span name="attr_Power2_Battle"></span>
+      </div>
+
+      <input type="hidden" name="attr_Background">
+
+      <div class="optional-power power-card">
+          <select name="attr_OptionalPower">
+            <option data-background='Alchemist' value='Discernment'>
+              Discernment
+            </option>
+            <option data-background='Alchemist' value='Homunculus'>
+              Homunculus
+            </option>
+            <option data-background='Dream-Thief' value='A Coin for a Thought'>
+              A Coin for a Thought
+            </option>
+            <option data-background='Dream-Thief' value='Soporific Hymn'>
+              Soporific Hymn
+            </option>
+            <option data-background='Evangelist' value='Fire and Brimstone'>
+              Fire and Brimstone
+            </option>
+            <option data-background='Evangelist' value='Reveal the Deceiver'>
+              Reveal the Deceiver
+            </option>
+            <option data-background='Half-Noble' value='Vestige of Authority'>
+              Vestige of Authority
+            </option>
+            <option data-background='Half-Noble' value='Day to Night'>
+              Day to Night
+            </option>
+            <option data-background='Hunter' value='Exorcism'>
+              Exorcism
+            </option>
+            <option data-background='Hunter' value='Experienced Tracker'>
+              Experienced Tracker
+            </option>
+            <option data-background='Numerological Monk' value='Blasphemathematics'>
+              Blasphemathematics
+            </option>
+            <option data-background='Numerological Monk' value='Psychostatistics'>
+              Psychostatistics
+            </option>
+            <option data-background='Wise One' value='Healing Arts'>
+              Healing Arts
+            </option>
+            <option data-background='Wise One' value='Heart of Gas'>
+              Heart of Gas
+            </option>
+            <option data-background='Witchfinder' value='Fear Him'>
+              Fear Him
+            </option>
+            <option data-background='Witchfinder' value='JAccuse'>
+              JAccuse
+            </option>
+            <option data-background='Wolf' value='Circle the Prey'>
+              Circle the Prey
+            </option>
+            <option data-background='Wolf' value='Pack Loyalty'>
+              Pack Loyalty
+            </option>
+          </select>
+          <span name="attr_OptionalCost"></span>
+          <span name="attr_OptionalDescription"></span>
+          <span name="attr_OptionalBattle"></span>
+          <span name="attr_OptionalInvestigation"></span>
+      </div>
+
+      <div class="power-card">
+        <label>Speciality<br />
+          <select name="attr_Speciality" class="show-on-edit">
+            <option value="Calls Lightning">Calls Lightning</option>
+            <option value="Cavorts with the Dead">Cavorts with the Dead</option>
+            <option value="Has Poison Blood">Has Poison Blood</option>
+            <option value="Has the Blessing of a Saint">Has the Blessing of a Saint</option>
+            <option value="Heals Quickly">Heals Quickly</option>
+            <option value="Protects My Friends">Protects My Friends</option>
+            <option value="Runs with Wolves">Runs with Wolves</option>
+            <option value="Sees Portents">Sees Portents</option>
+            <option value="Whispers with Machines">Whispers with Machines</option>
+          </select>
+        </label>
+
+        <span name="attr_Speciality" class="hide-on-edit"></span>
+        
+        <span name="attr_Speciality_Cost"></span>
+        <span name="attr_Speciality_Description"></span>
+        <span name="attr_Speciality_Battle"></span>
+        <span name="attr_Speciality_Investigation"></span>
+      </div>
+
+    </section>
+
+    <section class="trait-details">
+      <h2>Traits</h2>
+      <textarea name="attr_Trait"></textarea>
+    </section>
+
+    
+    <section class="distinction-details">
+      <h2>Distinctions</h2>
+
+      <label>Spades<br />
+        <input class="show-on-edit" name="attr_SpadesDistinction" type="text" placeholder="A dangerous or predatory truth."/>
+      </label>
+
+      <span class="hide-on-edit" name="attr_SpadesDistinction"></span>
+
+      <label>Clubs<br />
+        <input name="attr_ClubsDistinction" placeholder="An obvious feature or look, visible to everyone." type="text" />
+      </label>
+
+      <label>Diamonds<br />
+        <input name="attr_DiamondsDistinction" placeholder="Something of value you carry or know." type="text" />
+      </label>
+
+      <label>Hearts<br />
+        <input name="attr_HeartsDistinction" placeholder="A deep personal connection to a person or place." type="text" />
+      </label>
+    </section>
+  </div>
+</div>
+
+ 
+<script type="text/worker">
+${INLINE_SCRIPT}
+</script>

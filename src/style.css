@@ -1,0 +1,133 @@
+.sheet {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.sheet h1,
+.sheet h2,
+.sheet h3,
+.sheet h4 {
+  color: darkred;
+}
+
+/** all our *-details classes should have a bottom margin **/
+[class$="details"] {
+  margin-bottom: 1.25em;
+}
+
+.ReadOnly {
+  text-align: right;
+}
+
+/** handle the hiding and showing via edit mode **/
+[name="attr_ReadOnly"][value="on"] + .form .hide-on-edit {
+  display: none;
+}
+
+[name="attr_ReadOnly"][value="0"] + .form .show-on-edit {
+  display: none;
+}
+
+/**
+** the name input and hope count 
+**/
+.identity-details {
+  display: flex;
+}
+
+/** style the repeating class description **/
+[data-groupname="repeating_descriptions"] {
+  background: lightyellow;
+  padding: 1em;
+  font-style: italic;
+  margin: 1em 0;
+}
+
+/* * Hide the add/modify buttons for the repeated class descriptions **/
+[data-groupname="repeating_descriptions"].repcontrol {
+  display: none;
+}
+
+/** the power section and cards **/
+.power-details {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 1fr 1fr;
+}
+
+.power-card {
+  border-radius: 6px;
+  box-shadow: 1px 1px 7px lightgray;
+  padding: 1em;
+}
+
+.power-card span {
+  display: block;
+}
+
+/** Power name, unless its a selectable one **/
+.power-card :first-child:not(label) {
+  font-size: 20px;
+}
+
+/** the cost **/
+.power-card > :nth-child(2) {
+  font-size: 22px;
+}
+
+/** the description **/
+.power-card :nth-child(3) {
+  background: lightyellow;
+  padding: 0.5em;
+}
+
+/** CSS to display only optional powers**/
+
+input[type="hidden"][name="attr_Background"] + .optional-power option {
+  display: none;
+}
+
+input[value="Alchemist"] + .optional-power option[data-background="Alchemist"] {
+  display: initial;
+}
+input[value="Dream-Thief"]
+  + .optional-power
+  option[data-background="Dream-Thief"] {
+  display: initial;
+}
+input[value="Evangelist"]
+  + .optional-power
+  option[data-background="Evangelist"] {
+  display: initial;
+}
+input[value="Half-Noble"]
+  + .optional-power
+  option[data-background="Half-Noble"] {
+  display: initial;
+}
+input[value="Hunter"] + .optional-power option[data-background="Hunter"] {
+  display: initial;
+}
+input[value="Numerological Monk"]
+  + .optional-power
+  option[data-background="Numerological Monk"] {
+  display: initial;
+}
+input[value="Wise One"] + .optional-power option[data-background="Wise One"] {
+  display: initial;
+}
+input[value="Witchfinder"]
+  + .optional-power
+  option[data-background="Witchfinder"] {
+  display: initial;
+}
+input[value="Wolf"] + .optional-power option[data-background="Wolf"] {
+  display: initial;
+}
+
+.trait-details textarea {
+  width: 67%;
+}
+
+.distinction-details input {
+  width: 67%;
+}
