@@ -31,7 +31,8 @@
 ** the name input and hope count 
 **/
 .identity-details {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
 }
 
 /** style the repeating class description **/
@@ -124,6 +125,7 @@ input[value="Wolf"] + .optional-power option[data-background="Wolf"] {
   display: initial;
 }
 
+.death-details textarea,
 .trait-details textarea {
   width: 67%;
 }

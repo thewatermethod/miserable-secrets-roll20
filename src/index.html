@@ -2,7 +2,8 @@
 <div class="sheet">
 
   <!-- this decides whether we show the form fields or the flat data -->
-  <input type="hidden" name="attr_ReadOnly">
+  <input type="hidden" name="attr_ReadOnly" />
+  <input type="hidden" name="attr_Tab" />
   <div class="form">
 
     <section class="identity-details">
@@ -18,9 +19,61 @@
         <input type="number" name="attr_Hope" min="0">
       </label>
 
+      <label>Dice Pool
+        <input type="number" name="attr_DicePool" value="0" step="1" />
+      </label>
+
       <label class="ReadOnly">Edit mode<input type="checkbox" name="attr_ReadOnly"></label>
 
     </section>
+
+ 
+
+    <section class="totem-details">
+      <label>Totem Slot 1 
+      <select name="attr_Totem1">
+        <option selected>Empty</option>
+        <option>Hearts</option>
+        <option>Clubs</option>
+        <option>Diamonds</option>
+        <option>Spades</option>
+      </select>
+      </label>
+
+      <label>Totem Slot 2 
+        <select name="attr_Totem2">
+          <option selected>Empty</option>
+          <option>Hearts</option>
+          <option>Clubs</option>
+          <option>Diamonds</option>
+          <option>Spades</option>
+        </select>
+        </label>
+
+        <label>Totem Slot 3
+          <select name="attr_Totem3">
+            <option selected>Empty</option>
+            <option>Hearts</option>
+            <option>Clubs</option>
+            <option>Diamonds</option>
+            <option>Spades</option>
+          </select>
+        </label>
+
+        <label>Totem Slot 4 
+          <select name="attr_Totem4">
+            <option selected>Empty</option>
+            <option>Hearts</option>
+            <option>Clubs</option>
+            <option>Diamonds</option>
+            <option>Spades</option>
+          </select>
+        </label>
+
+
+
+    </section>
+
 
     <hr />
 
@@ -125,8 +178,8 @@
           </select>
           <span name="attr_OptionalCost"></span>
           <span name="attr_OptionalDescription"></span>
-          <span name="attr_OptionalBattle"></span>
           <span name="attr_OptionalInvestigation"></span>
+          <span name="attr_OptionalBattle"></span>
       </div>
 
       <div class="power-card">
@@ -148,8 +201,8 @@
         
         <span name="attr_Speciality_Cost"></span>
         <span name="attr_Speciality_Description"></span>
-        <span name="attr_Speciality_Battle"></span>
         <span name="attr_Speciality_Investigation"></span>
+        <span name="attr_Speciality_Battle"></span>
       </div>
 
     </section>
@@ -181,6 +234,20 @@
         <input name="attr_HeartsDistinction" placeholder="A deep personal connection to a person or place." type="text" />
       </label>
     </section>
+
+    <section class="death-details">
+      <p></p>
+      <label>
+        Trauma<br />
+        <textarea name="attr_Trauma"></textarea>
+      </label>
+
+      <label>
+        Curse<br />
+        <textarea name="attr_Curse"></textarea>
+      </label>
+    </section>
+
   </div>
 </div>
 

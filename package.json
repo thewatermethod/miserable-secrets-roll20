@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "build": "node ./build.js",
-    "dev": "nodemon --watch src -e html,js,css ./build.js"
+    "dev": "nodemon --watch src -e html,js,css ./build.js",
+    "serve": "http-server ./dist -p 666"
   },
   "devDependencies": {},
   "dependencies": {
+    "http-server": "^14.1.1",
     "nodemon": "^2.0.15"
   }
 }
