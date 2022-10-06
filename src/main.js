@@ -500,11 +500,12 @@ const Specialities = {
       "When you pray for your saint's help, gain Resistance (Profane) 2 or Resistance (Memory) 2. The next time you take damage, you're resistance goes away at the end of the round.",
   },
   "Heals Quickly": {
-    Cost: "♦♦",
+    Cost: "♦",
     Description: "Your body knits back together like a spider mending its web.",
     Investigation:
       "When you have been wounded, you may heal the wound and regain 1 Hope as if you {recovered } and/or received medical attention, but without spending a turn.",
-    Battle: "When you lose all Hope, you gain 1 Hope.",
+    Battle:
+      "When you lose all Hope, you may sacrifice a Diamond totem to gain 1 Hope.",
   },
   "Protects My Friends": {
     Cost: "♦♦",
