@@ -18,16 +18,14 @@
         Hope<br />
         <input type="number" name="attr_Hope" min="0">
       </label>
-
-      <label>Dice Pool
+      
+      <label>
+        Dice Pool
         <input type="number" name="attr_DicePool" value="0" step="1" />
       </label>
 
       <label class="ReadOnly">Edit mode<input type="checkbox" name="attr_ReadOnly"></label>
-
     </section>
-
- 
 
     <section class="totem-details">
       <label>Totem Slot 1 
@@ -177,14 +175,14 @@
             </option>
           </select>
           <span name="attr_OptionalCost"></span>
-          <span name="attr_OptionalDescription"></span>
+          <span class="power-description" name="attr_OptionalDescription"></span>
           <span name="attr_OptionalInvestigation"></span>
           <span name="attr_OptionalBattle"></span>
       </div>
 
       <div class="power-card">
         <label>Speciality<br />
-          <select name="attr_Speciality" class="show-on-edit">
+          <select name="attr_Speciality">
             <option value="Calls Lightning">Calls Lightning</option>
             <option value="Cavorts with the Dead">Cavorts with the Dead</option>
             <option value="Has Poison Blood">Has Poison Blood</option>
@@ -197,12 +195,70 @@
           </select>
         </label>
 
-        <span name="attr_Speciality" class="hide-on-edit"></span>
-        
         <span name="attr_Speciality_Cost"></span>
         <span name="attr_Speciality_Description"></span>
         <span name="attr_Speciality_Investigation"></span>
         <span name="attr_Speciality_Battle"></span>
+      </div>
+
+      <div class="power-card power-card--editable">
+        <label>Speciality 2<br />
+          <input type="text" name="attr_Speciality2" />
+        </label>
+
+        <label>Cost<br />
+          <input type="text" name="attr_Speciality2_Cost" />
+        </label>
+
+        <label>
+          Investigation<br />
+          <textarea name="attr_Speciality2_Investigation"></textarea>
+        </label>
+
+        <label>
+          Battle<br />
+          <textarea name="attr_Speciality2_Battle"></textarea>
+        </label>
+      </div>
+
+      <div class="power-card power-card--editable">
+        <label>Speciality 3<br />
+          <input type="text" name="attr_Speciality3" />
+        </label>
+
+        <label>Cost<br />
+          <input type="text" name="attr_Speciality3_Cost" />
+        </label>
+
+        <label>
+          Investigation<br />
+          <textarea name="attr_Speciality3_Investigation"></textarea>
+        </label>
+
+        <label>
+          Battle<br />
+          <textarea name="attr_Speciality3_Battle"></textarea>
+        </label>
+      </div>
+
+      <div class="power-card power-card--editable">
+        <label>Speciality 4<br />
+          <input type="text" name="attr_Speciality4" />
+        </label>
+
+        <label>Cost<br />
+          <input type="text" name="attr_Speciality4_Cost" />
+        </label>
+
+        <label>
+          Investigation<br />
+          <textarea name="attr_Speciality4_Investigation"></textarea>
+        </label>
+
+        <label>
+          Battle<br />
+          <textarea name="attr_Speciality4_Battle"></textarea>
+        </label>
       </div>
 
     </section>

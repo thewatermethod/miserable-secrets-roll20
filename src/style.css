@@ -65,18 +65,8 @@
   display: block;
 }
 
-/** Power name, unless its a selectable one **/
-.power-card :first-child:not(label) {
-  font-size: 20px;
-}
-
-/** the cost **/
-.power-card > :nth-child(2) {
-  font-size: 22px;
-}
-
 /** the description **/
-.power-card :nth-child(3) {
+.power-description {
   background: lightyellow;
   padding: 0.5em;
 }
